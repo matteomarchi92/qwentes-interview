@@ -1,0 +1,45 @@
+<app-menu></app-menu>
+
+<div class="w-100 h-100 my-card-content px-2">
+    <div *ngIf="pageState==0 || users?.length==0" class="row m-0 h-100">
+        <div class="col m-0 h-100 w-100 d-flex justify-content-center align-items-center">
+            <app-loading-card [loadingData]="loadingData"></app-loading-card>
+        </div>
+    </div>
+
+    <ng-container *ngIf="pageState==1 && users?.length!=0">
+        <div *ngFor="let user of users" class="list-card container my-2 mx-2"
+            [ngClass]="{'clickable': user.urlPath != null}" (click)="navigateFromUser(user)">
+            <div class="row m-0 h-100">
+                <div class="col m-0 h-100 col-4 d-flex justify-content-center align-items-center">
+                    <div class="initials-circle d-flex justify-content-center align-items-center">
+                        <div>
+                            <span>{{ user.name | initials }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col h-100 col-8 d-flex align-items-center">
+                    <div class="w-100">
+                        <div class="row m-0 w-100">
+                            <div class="col m-0 w-100 line-height-1rem">
+                                <span class="font-size-l">{{ user.name }}</span>
+                            </div>
+                        </div>
+                        <div class="row m-0 w-100">
+                            <div class="col m-0 w-100 line-height-1rem">
+                                <span class="font-size-s muted">{{ user.address.street }}, {{ user.address.city
+                                    }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <div *ngIf="pageState==2" class="row m-0 h-100">
+        <div class="col m-0 h-100 w-100 d-flex justify-content-center align-items-center">
+            <app-error-card [errorData]="errorData"></app-error-card>
+        </div>
+    </div>
+</div>

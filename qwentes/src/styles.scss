@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+// main container
+.main-container {
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    width: 100vw;
+    background: aliceblue;
+    overflow: hidden;
+}
+
+// scrollbar
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: aliceblue;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+// text styling
+
+.font-size-l {
+    font-size: 1.25rem;
+}
+
+.font-size-s {
+    font-size: .75rem;
+}
+
+.muted {
+    color: #888;
+}
+
+.line-height-1rem {
+    line-height: 1rem;
+}
+
+// card
+
+.card {
+    border: none;
+
+    .list-card {
+        height: 6rem;
+        max-width: calc(100% - 10px - 0.5rem);
+        background-color: #8ac8ff80;
+        border-radius: 8px;
+
+        &.white {
+            background-color: #ffffff;
+        }
+
+        &.flexible {
+            min-height: 6rem;
+            height: fit-content;
+        }
+    }
+}
+.card-body {
+    max-height: 100%;
+}
+
+.my-card-content {
+    height: 100%;
+    max-height: calc(100% - 11.4rem);
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    transform: scale(1.02);
+}
+
+// button
+
+button.btn-primary:disabled {
+    background-color: #72aafe;
+}
+
+

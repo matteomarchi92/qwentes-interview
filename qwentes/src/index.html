@@ -1,13 +1,133 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>Qwentes</title>
+  <meta name="google" content="notranslate" />
+  <!-- app name -->
+  <title>Loading...</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- <link href="./statics/amp/amp.min.css" rel="stylesheet">
+  <script src="./statics/amp/amp.min.js"></script> -->
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./assets/favicon/manifest.json">
+  <meta name="theme-color" content="#ffffff">
 </head>
+
+<app-root></app-root>
+
 <body>
-  <app-root></app-root>
+  <!-- PRE-LOADED APP : begin -->
+  <div id="preloaded" style="z-index: 99999;">
+    <style type="text/css">
+      .preloaded-container,
+      .preloaded-background {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 1;
+        position: fixed;
+        z-index: 9999;
+      }
+
+      .preloaded-background {
+        background: aliceblue;
+      }
+
+      .preloaded-container>.centered {
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        left: 0px;
+        text-align: center;
+        margin-top: -170px;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .centered-card {
+        box-sizing: border-box;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        padding: 16px 20px;
+        color: #777E88;
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        line-height: 1.3rem;
+      }
+
+      .centered-card table .icon {
+        width: 2rem;
+        height: 2rem;
+        padding: 0 0.5rem;
+        color: #777E88;
+        line-height: 1.3rem;
+        vertical-align: middle;
+      }
+
+      .centered-card table .message-container {
+        padding: 0.5rem;
+      }
+
+      .centered-card table .message-container p {
+        margin: 0;
+        padding: 0.5rem 0;
+      }
+
+    </style>
+    <div class="preloaded-background"></div>
+    <div class="preloaded-container">
+      <div class="centered">
+        <div class="centered-card">
+          <table>
+            <tr>
+              <td class="message-container">Loading...</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var loaded = function () {
+      var preloaded = document.getElementById('preloaded');
+      preloaded.style.display = "none";
+    };
+    var interval = setInterval(function () {
+      if (document.readyState === 'complete') {
+        clearInterval(interval);
+        loaded();
+      }
+    }, 100);
+
+  </script>
+  <!-- PRE-LOADED APP : end -->
+
 </body>
+
 </html>

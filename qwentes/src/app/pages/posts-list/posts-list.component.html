@@ -1,0 +1,37 @@
+<app-menu></app-menu>
+
+<div class="w-100 h-100 my-card-content px-2">
+    <div *ngIf="pageState==0 || posts?.length==0" class="row m-0 h-100">
+        <div class="col m-0 h-100 w-100 d-flex justify-content-center align-items-center">
+            <app-loading-card [loadingData]="loadingData"></app-loading-card>
+        </div>
+    </div>
+
+    <ng-container *ngIf="pageState==1 && posts?.length!=0">
+        <div *ngFor="let post of posts" class="list-card flexible container my-2 mx-2" 
+                        [ngClass]="{'clickable': post.urlPath != null}" (click)="navigateFromPost(post)">
+                        <div class="row m-0">
+                            <div class="col">
+                                <div class="w-100 py-1">
+                                    <div class="row m-0 w-100">
+                                        <div class="col m-0 w-100 line-height-1rem">
+                                            <h6 class="mb-0">{{ post.title }}</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0 w-100">
+                                        <div class="col m-0 w-100 line-height-1rem">
+                                            <p class="font-size-s muted" innerHTML="{{ post.body }}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </ng-container>
+
+    <div *ngIf="pageState==2" class="row m-0 h-100">
+        <div class="col m-0 h-100 w-100 d-flex justify-content-center align-items-center">
+            <app-error-card [errorData]="errorData"></app-error-card>
+        </div>
+    </div>
+</div>
