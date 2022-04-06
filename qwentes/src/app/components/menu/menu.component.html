@@ -2,8 +2,8 @@
     <button *ngIf="backButton!=null" style="width: 1rem" class="btn btn-primary" [routerLink]="backButton?.urlPath"
         [queryParams]="backButton?.urlQueryParams" [routerLinkActiveOptions]="{exact: false}"><i class="fa fa-arrow-left"></i></button>
     <button type="button" class="btn btn-primary"  routerLinkActive="disabled" [routerLink]="['/users-list']"
-        [routerLinkActiveOptions]="{exact: false}"><strong>CONTACTS</strong></button>
+        [routerLinkActiveOptions]="{exact: true}"><strong>CONTACTS</strong></button>
     <button type="button" class="btn btn-primary" routerLinkActive="disabled" [routerLink]="['/posts-list']"
-    [routerLinkActiveOptions]="{exact: false}"><strong  >POSTS</strong></button>
+    [routerLinkActiveOptions]="{exact: true}"><strong  >POSTS</strong></button>
     <button type="button" class="btn btn-warning text-white" (click)="onLogout()"><strong>LOGOUT</strong></button>
 </div>

@@ -86,8 +86,14 @@
 
 // button
 
-button.btn-primary:disabled {
-    background-color: #72aafe;
+.btn-primary.disabled {
+    background-color: #7ab0ff!important;
+    border-color: #7ab0ff!important;
+    color: #dbeaff!important;
+}
+
+.btn.disabled {
+    opacity: 1!important;
 }
 
 

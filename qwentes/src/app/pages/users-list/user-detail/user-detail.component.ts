@@ -207,7 +207,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
       'Content-type': 'application/json; charset=UTF-8',
     }
     try {
-      this.apiService.sendPostRequest('/posts', payload, null, headers)
+      this.apiService.sendPatchRequest('/users/'+this.userId, payload, null, headers)
         .pipe(
           retryWhen(this.apiService.genericRetryStrategy()),
           catchError(error => {

@@ -27,11 +27,12 @@ export class ApiService {
     return this.httpClient.post(url, payload, { headers: headers, params: params, observe: "response" })
   }
 
+  public sendPatchRequest(url: string, payload: any, params?: any, headers?:any) {
 
-  // Generic retry: Funziona con input:
-  // - maxRetryAttempts: Numero di tentativi prima del fallimento.
-  // - scalingDuration:  Tempo di retry cumulato (ogni richiesta aumenta di questa quantità) [ms].
-  // - excludedStatusCodes: Codici esclusi dal retry.
+    url = this.SERVER_URL != null && url.startsWith('/') ? this.SERVER_URL + url : url;
+    return this.httpClient.patch(url, payload, { params: params, observe: "response", headers: headers })
+  }
+
   public genericRetryStrategy = (
     {
       maxRetryAttempts = 3,
@@ -57,8 +58,7 @@ export class ApiService {
         console.log(`Attempt ${retryAttempt}: retrying in ${retryAttempt * scalingDuration} ms`);
         // retry after 1s, 2s, etc...
         return timer(retryAttempt * scalingDuration);
-      }),
-      // finalize(() => console.log('We are done!'))
+      })
     );
   };
 }
