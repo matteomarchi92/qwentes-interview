@@ -1,3 +1,6 @@
+# Avvertenze
+L'applicazione è sviluppata con angularCLI versione 13.3.1.
+
 # Qwentes Application
 Il tempo massimo per la consegna è di 10 giorni dalla ricezione delle specifiche via email.
 
